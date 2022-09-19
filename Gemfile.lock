@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dotenv (2.8.1)
+    pg (1.4.3)
+
+PLATFORMS
+  arm-linux-androideabi
+
+DEPENDENCIES
+  dotenv
+  pg
+
+BUNDLED WITH
+   2.3.22
