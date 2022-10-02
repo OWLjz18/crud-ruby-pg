@@ -124,7 +124,7 @@
 </li></ul>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 15</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> (<span class="ruby-identifier">dbname</span>, <span class="ruby-identifier">user</span>)
   <span class="ruby-ivar">@dbname</span> = <span class="ruby-identifier">dbname</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
@@ -160,7 +160,7 @@
 </li></ul>
 
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span> (<span class="ruby-identifier">table</span>, <span class="ruby-identifier">anime_name</span>)
   <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;INSERT INTO #{table} (name) VALUES (&#39;#{anime_name}&#39;);&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -186,7 +186,7 @@
 </li></ul>
 
           <div class="method-source-code" id="delete-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 40</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span> (<span class="ruby-identifier">table</span>, <span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;DELETE FROM #{table} WHERE id = #{id};&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -210,7 +210,7 @@
 </li></ul>
 
           <div class="method-source-code" id="select_all-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 57</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">select_all</span> (<span class="ruby-identifier">table</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;SELECT * FROM #{table};&quot;</span>)
   
@@ -240,7 +240,7 @@
 </li></ul>
 
           <div class="method-source-code" id="select_by_id-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 47</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">select_by_id</span> (<span class="ruby-identifier">table</span>, <span class="ruby-identifier">id</span>)
   <span class="ruby-identifier">res</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;SELECT * FROM #{table} WHERE id = #{id};&quot;</span>)
   
@@ -272,7 +272,7 @@
 </li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File src/connection.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/connection.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span> (<span class="ruby-identifier">table</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">new_name</span>)
   <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">exec</span>(<span class="ruby-node">&quot;UPDATE #{table} SET name = #{new_name} WHERE id = #{id};&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

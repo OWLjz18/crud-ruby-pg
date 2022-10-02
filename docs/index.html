@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./README_md.html">README</a>
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+    <li><a href="./Connection.html">Connection</a>
+    <li><a href="./Connection/DBConnection.html">Connection::DBConnection</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+
+<h1 align="center">crud-ruby-pg</h1>
+<p>A very simple CRUD with Ruby and Postgresql.</p>
+<hr>
+
+<h3 id="label-Pre-Requirements">Pre-Requirements<span><a href="#label-Pre-Requirements">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="https://git-scm.com/">git</a> To clone the repository using git.</p>
+</li></ul>
+<hr>
+
+<h3 id="label-Instalation">Instalation<span><a href="#label-Instalation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-Git">Git<span><a href="#label-Git">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">git</span> <span class="ruby-identifier">clone</span> <span class="ruby-string">&#39;https://github.com/OWLjz18/crud-ruby-pg.git&#39;</span>
+</pre>
+
+<p>And then run:</p>
+
+<pre class="ruby"><span class="ruby-identifier">cd</span> <span class="ruby-identifier">crud</span><span class="ruby-operator">-</span><span class="ruby-identifier">ruby</span><span class="ruby-operator">-</span><span class="ruby-identifier">pg</span>
+<span class="ruby-identifier">bundle</span> <span class="ruby-identifier">install</span>
+<span class="ruby-identifier">cd</span> <span class="ruby-identifier">lib</span>
+</pre>
+
+<h3 id="label-Use">Use<span><a href="#label-Use">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>First the connection module is required and a new instance of it is created:</p>
+
+<p>Assuming you ran the “script.sql” file, you’ll already have a database called “animes_api” and a table called “animes” to work with.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;./connection.rb&#39;</span>
+
+<span class="ruby-identifier">connection</span> = <span class="ruby-constant">Connection</span><span class="ruby-operator">::</span><span class="ruby-constant">DBConnection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;animes_api&#39;</span>, <span class="ruby-string">&#39;owljz18&#39;</span>)
+</pre>
+
+<p>And when doing so, the following methods are available:</p>
+
+<h4 id="label-Add">Add<span><a href="#label-Add">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>We can add a data, using the <strong>add</strong> method, it receives the name of the table and the new data to add:</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-string">&#39;AngelBeats&#39;</span>)
+</pre>
+
+<h4 id="label-Update">Update<span><a href="#label-Update">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>We can update the data of a table, using the <strong>update</strong> method, which receives the name of the table and the <strong>id</strong> of the record to update, plus the new value of said record:</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">update</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-string">&#39;Toradora&#39;</span>)
+</pre>
+
+<h4 id="label-Select+by+id">Select by id<span><a href="#label-Select+by+id">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>We can obtain the data from a table record, using the <strong>select_by_id</strong> method, which receives the name of the table and the <strong>id</strong> of the record to update, plus the new value of said record:</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">select_by_id</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-value">1</span>)
+</pre>
+
+<p>And that will print the following to the console:</p>
+
+<pre>id: 1, name: &#39;Toradora&#39;</pre>
+
+<h4 id="label-Delete">Delete<span><a href="#label-Delete">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>We can delete data from a table, using the <strong>delete</strong> method, which receives the name of the table and the <strong>id</strong> of the record to delete:</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-value">1</span>)
+</pre>
+
+<h4 id="label-Select+all">Select all<span><a href="#label-Select+all">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Last but not least, we have the <strong>select_all</strong> method, which allows us to get all the records from a table, so let’s add some data first:</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-string">&#39;Karakai Jouzu No Takagi-San&#39;</span>)
+<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-string">&#39;The Seven Deadly Sin&#39;</span>)
+<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-string">&#39;Magmell Ultramarine&#39;</span>)
+<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&#39;animes&#39;</span>, <span class="ruby-string">&#39;Bubbles&#39;</span>)
+</pre>
+
+<p>Now yes, let’s select all the data</p>
+
+<pre class="ruby"><span class="ruby-identifier">connection</span>.<span class="ruby-identifier">select_all</span>(<span class="ruby-string">&#39;animes&#39;</span>)
+</pre>
+
+<p>And that prints the following on the console:</p>
+
+<pre>1 Karakai Jouzu No Takagi-San
+2 The Seven Deadly Sin
+3 Magmell Ultramarine
+4 Bubbles</pre>
+<hr>
+
+<h3 id="label-Author+-F0-9F-A6-89">Author 🦉<span><a href="#label-Author+-F0-9F-A6-89">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><strong><em>José Zambrano</em></strong> (<a href="https://github.com/OWLjz18">OWLjz18</a>) =&gt; Project Creator.</p>
+</li><li>
+<p>Email =&gt; <a href="mailto:owl.jz18@gmail.com">owl.jz18@gmail.com</a></p>
+</li><li>
+<p>Instagram =&gt; <a href="https://instagram.com/owljz18">@owljz18</a></p>
+</li></ul>
+<hr>
+
+<h3 id="label-F0-9F-93-83+License">📃 License<span><a href="#label-F0-9F-93-83+License">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>This project is licensed under an <em>MIT</em> license, please visit the <a href="./LICENSE_md.html">LICENSE.md</a> file for more information about it.</p>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
