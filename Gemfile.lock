@@ -8,8 +8,8 @@ PLATFORMS
   arm-linux-androideabi
 
 DEPENDENCIES
-  dotenv
-  pg
+  dotenv (= 2.8.1)
+  pg (= 1.4.3)
 
 BUNDLED WITH
    2.3.22
